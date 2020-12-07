@@ -2,7 +2,7 @@ package util;
 
 import java.util.Scanner;
 
-public class UserInput extends UserOutput {
+public class UserInput {
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 
