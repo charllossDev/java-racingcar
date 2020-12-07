@@ -40,4 +40,17 @@ public enum CalculatorType {
 			// filter 메소드에 탐색이 안되면 Exception throw
 			.orElseThrow(() -> new IllegalArgumentException(UserOutput.USER_ERROR_MSG_IS_OPERATOR));
 	}
+
+	public static Integer getCalculateResult(String operator, int num1, int num2) {
+
+		// stream(enum.values)
+		return Arrays.stream(values())
+			// filter 는 요소를 특정 기준으로 필터링
+			// Enum 객체에 설정한 operator 문자열과 비교
+			.filter(o -> o.operator.equals(operator))
+			// findFirst // findAny
+			.findFirst()
+			// filter 메소드에 탐색이 안되면 Exception throw
+			.orElseThrow(() -> new IllegalArgumentException(UserOutput.USER_ERROR_MSG_IS_OPERATOR)).calculate(num1, num2);
+	}
 }

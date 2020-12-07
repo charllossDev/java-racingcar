@@ -10,6 +10,24 @@ import org.junit.jupiter.params.provider.CsvSource;
 class CalculatorServiceTest {
 
 	Calculator calculator = null;
+
+	@Test
+	@DisplayName("계산식 ENUM 연산자 Exception Test")
+	void enumExceptionTest() {
+
+		assertThatIllegalArgumentException().isThrownBy(()->CalculatorType.getCalculateResult("&s", 10, 2));
+	}
+
+	@Test
+	@DisplayName("계산식 ENUM 연산자 및 수를 모두 전달해 바로 결과값 리턴")
+	void enumCalculateTest() {
+
+		assertThat(CalculatorType.getCalculateResult("+", 10, 2)).isEqualTo(12);
+		assertThat(CalculatorType.getCalculateResult("*", 10, 2)).isEqualTo(20);
+		assertThat(CalculatorType.getCalculateResult("-", 10, 2)).isEqualTo(8);
+		assertThat(CalculatorType.getCalculateResult("/", 10, 2)).isEqualTo(5);
+	}
+
 	@Test
 	@DisplayName("계산식 ENUM 계산 테스트, 나누었을때, 정수로 출력되는지 확인")
 	void enumModest() {
