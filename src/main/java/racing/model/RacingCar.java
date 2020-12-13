@@ -54,6 +54,6 @@ public class RacingCar {
 
 	public boolean isWinner(int maxDistance) {
 
-		return getDistance() == maxDistance;
+		return this.location.matchedBy(maxDistance);
 	}
 }

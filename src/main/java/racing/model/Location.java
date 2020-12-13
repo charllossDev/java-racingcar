@@ -49,4 +49,9 @@ public class Location {
 	public int hashCode() {
 		return Objects.hash(location);
 	}
+
+	public boolean matchedBy(int maxDistance) {
+
+		return this.location == maxDistance;
+	}
 }
